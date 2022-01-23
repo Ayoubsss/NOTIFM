@@ -133,4 +133,7 @@
       <Name>NOTIFM</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Images\registration_background_upper_crop.png" />
+  </ItemGroup>
 </Project>

@@ -13,6 +13,8 @@ namespace NOTIFM
         public MainPage()
         {
             InitializeComponent();
+
+            resourceImage.Source = ImageSource.FromResource("NOTIFM.Images.registration_background_upper_crop.png");
         }
     }
 }
