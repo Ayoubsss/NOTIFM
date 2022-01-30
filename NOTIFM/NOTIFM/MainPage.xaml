@@ -18,7 +18,7 @@
             <BoxView BackgroundColor="White" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,1,1,0.5"/>
             <Frame HasShadow="False" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" CornerRadius="50" Padding="0" >
                 <StackLayout BackgroundColor="White" >
-                    <Label Padding="25" HorizontalOptions="Center" Text="Register"></Label>
+                    <Label Padding="25" HorizontalOptions="CenterAndExpand" FontFamily="UrbanistFontBold" FontSize="20" Text="Register"></Label>
                 </StackLayout>
             </Frame>
             
