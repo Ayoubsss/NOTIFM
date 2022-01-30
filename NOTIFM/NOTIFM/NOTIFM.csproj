@@ -13,12 +13,14 @@
   <ItemGroup>
     <None Remove="Images\registration_background_upper_crop.png" />
     <None Remove="Resources\Fonts\Urbanist-Bold.ttf" />
+    <None Remove="Resources\Fonts\Urbanist-Medium.ttf" />
     <None Remove="Resources\Fonts\Urbanist-Regular.ttf" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Images\registration_background_upper_crop.png" />
     <EmbeddedResource Include="Resources\Fonts\Urbanist-Bold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Urbanist-Medium.ttf" />
     <EmbeddedResource Include="Resources\Fonts\Urbanist-Regular.ttf" />
   </ItemGroup>
 

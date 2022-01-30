@@ -6,19 +6,33 @@
     <Grid BackgroundColor="#34C0FF">
         
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.4*" />
+            <RowDefinition Height="1*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
-        <StackLayout Padding="40" BackgroundColor="#34C0FF" Grid.Row="0">
-            <Image x:Name="resourceImage" Aspect="AspectFit" />
+
+        <StackLayout BackgroundColor="#34C0FF" Grid.Row="0">
+            <Image x:Name="resourceImage" Scale="0.70" TranslationY="-40"/>
         </StackLayout>
 
         <AbsoluteLayout VerticalOptions="FillAndExpand" Grid.Row="1">
             <BoxView BackgroundColor="White" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,1,1,0.5"/>
             <Frame HasShadow="False" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" CornerRadius="50" Padding="0" >
                 <StackLayout BackgroundColor="White" >
-                    <Label Padding="25" HorizontalOptions="CenterAndExpand" FontFamily="UrbanistFontBold" FontSize="20" Text="Register"></Label>
+                    <Label Padding="25" TextColor="Black" HorizontalOptions="CenterAndExpand" FontFamily="UrbanistFontBold" FontSize="20" Text="Register"></Label>
+                    <!-- 
+                    TODO: Redesign this entry to have an outline -
+                    Hacky Approach with StackLayout: https://stackoverflow.com/questions/32204361/border-color-for-editor-in-xamarin-forms 
+                    -->
+                    <Entry WidthRequest="370" HeightRequest="65" HorizontalOptions="Center" Placeholder="Your mail ID" FontFamily="UrbanistFontMedium" TextColor="#0D2631" BackgroundColor="White" />
+                    <Button WidthRequest="370" HeightRequest="65" HorizontalOptions="Center" BorderRadius="50" Text="SIGN UP" TextColor="White" FontFamily="UrbanistFontBold" FontSize="17">
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Color="#81D9FF" Offset="0.01" />
+                                <GradientStop Color="#2FBFFF" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <BoxView BackgroundColor="black" HorizontalOptions="Center" WidthRequest="250" HeightRequest="1"/>
                 </StackLayout>
             </Frame>
             
