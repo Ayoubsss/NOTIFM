@@ -7,12 +7,12 @@
     <Grid BackgroundColor="#34C0FF">
         
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="1.15*" />
         </Grid.RowDefinitions>
 
         <StackLayout BackgroundColor="#34C0FF" Grid.Row="0">
-            <Image x:Name="resourceImage" Scale="0.70" TranslationY="-40"/>
+            <Image x:Name="resourceImage" Scale="0.65" TranslationY="-50"/>
         </StackLayout>
 
         <AbsoluteLayout VerticalOptions="FillAndExpand" Grid.Row="1">
@@ -25,13 +25,13 @@
                     Hacky Approach with StackLayout: https://stackoverflow.com/questions/32204361/border-color-for-editor-in-xamarin-forms 
                     -->
                     
-                    <StackLayout WidthRequest="370" HeightRequest="65" HorizontalOptions="Center"  BackgroundColor="White">
+                    <StackLayout WidthRequest="370" HeightRequest="55" HorizontalOptions="Center"  BackgroundColor="White">
                         <StackLayout BackgroundColor="#0D2631" Padding="1">
-                            <Entry WidthRequest="370" HeightRequest="65" HorizontalOptions="Center" Placeholder="Your mail ID" FontFamily="UrbanistFontMedium" TextColor="#0D2631" BackgroundColor="White" />
+                            <Entry WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" Placeholder="Your mail ID" FontFamily="UrbanistFontMedium" TextColor="#0D2631" BackgroundColor="White" />
                         </StackLayout>
                     </StackLayout>
                     
-                    <Button WidthRequest="370" HeightRequest="65" HorizontalOptions="Center" BorderRadius="50" Text="SIGN UP" TextColor="White" FontFamily="UrbanistFontBold" FontSize="17">
+                    <Button TranslationY="7.5" WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" BorderRadius="50" Text="SIGN UP" TextColor="White" FontFamily="UrbanistFontBold" FontSize="15">
                         <Button.Background>
                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                 <GradientStop Color="#81D9FF" Offset="0.01" />
@@ -39,7 +39,12 @@
                             </LinearGradientBrush>
                         </Button.Background>
                     </Button>
-                    <Image HorizontalOptions="Center" Source="{local:ImageResource NOTIFM.Images.or_sign_in_social.png}"/>
+                    <Image HeightRequest="30" HorizontalOptions="Center" Source="{local:ImageResource NOTIFM.Images.or_sign_in_social.png}" TranslationY="10"/>
+                    <Button Text="" HorizontalOptions="Center"
+        BorderColor="#0D2631"
+                            BackgroundColor="White"
+        BorderRadius="80"
+        BorderWidth="1"/>
                 </StackLayout>
             </Frame>
             
