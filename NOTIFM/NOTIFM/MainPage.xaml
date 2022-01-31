@@ -5,7 +5,7 @@
              x:Class="NOTIFM.MainPage">
 
     <Grid BackgroundColor="#34C0FF">
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="1.15*" />
@@ -24,13 +24,13 @@
                     TODO: Redesign this entry to have an outline -
                     Hacky Approach with StackLayout: https://stackoverflow.com/questions/32204361/border-color-for-editor-in-xamarin-forms 
                     -->
-                    
+
                     <StackLayout WidthRequest="370" HeightRequest="55" HorizontalOptions="Center"  BackgroundColor="White">
                         <StackLayout BackgroundColor="#0D2631" Padding="1">
                             <Entry WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" Placeholder="Your mail ID" FontFamily="UrbanistFontMedium" TextColor="#0D2631" BackgroundColor="White" />
                         </StackLayout>
                     </StackLayout>
-                    
+
                     <Button TranslationY="7.5" WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" BorderRadius="50" Text="SIGN UP" TextColor="White" FontFamily="UrbanistFontBold" FontSize="15">
                         <Button.Background>
                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
@@ -39,20 +39,20 @@
                             </LinearGradientBrush>
                         </Button.Background>
                     </Button>
-                    <Image HeightRequest="30" HorizontalOptions="Center" Source="{local:ImageResource NOTIFM.Images.or_sign_in_social.png}" TranslationY="10"/>
-                    <Button Text="" HorizontalOptions="Center"
-        BorderColor="#0D2631"
-                            BackgroundColor="White"
-        BorderRadius="80"
-        BorderWidth="1"/>
+                    
+                    <Image HeightRequest="30" HorizontalOptions="Center" Source="{local:ImageResource NOTIFM.Images.or_sign_in_social.png}" TranslationY="15"/>
+                    <StackLayout Padding="20" HorizontalOptions="Center" Orientation="Horizontal">
+                        <ImageButton Margin="0, 0, 20, 0" HeightRequest="65" BackgroundColor="White" Source="{local:ImageResource NOTIFM.Images.google_button.png}" HorizontalOptions="Center"/>
+                        <ImageButton HeightRequest="65" BackgroundColor="White"  Source="{local:ImageResource NOTIFM.Images.facebook_button.png}" HorizontalOptions="Center"/>
+                    </StackLayout>
                 </StackLayout>
             </Frame>
-            
+
         </AbsoluteLayout>
 
 
 
     </Grid>
-    
+
 
 </ContentPage>

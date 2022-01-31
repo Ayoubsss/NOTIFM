@@ -11,6 +11,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\facebook_button.png" />
+    <None Remove="Images\google_button.png" />
     <None Remove="Images\or_sign_in_social.png" />
     <None Remove="Images\registration_background_upper_crop.png" />
     <None Remove="Resources\Fonts\Urbanist-Bold.ttf" />
@@ -19,6 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Images\facebook_button.png" />
+    <EmbeddedResource Include="Images\google_button.png" />
     <EmbeddedResource Include="Images\or_sign_in_social.png" />
     <EmbeddedResource Include="Images\registration_background_upper_crop.png" />
     <EmbeddedResource Include="Resources\Fonts\Urbanist-Bold.ttf" />
