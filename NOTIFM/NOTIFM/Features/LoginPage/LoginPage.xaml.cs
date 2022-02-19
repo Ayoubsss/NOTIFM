@@ -8,9 +8,9 @@ using Xamarin.Forms;
 
 namespace NOTIFM
 {
-    public partial class MainPage : ContentPage
+    public partial class LoginPage : ContentPage
     {
-        public MainPage()
+        public LoginPage()
         {
             InitializeComponent();
 

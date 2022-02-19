@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using NOTIFM.Common;
 using UIKit;
+using Xamarin.Forms;
 
 namespace NOTIFM.iOS
 {
@@ -23,6 +25,11 @@ namespace NOTIFM.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            Firebase.Core.App.Configure();
+
+            DependencyService.Register<IAuthenticationService, FirebaseAuthentication>();
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
