@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NOTIFM.Features.SignUpPage;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace NOTIFM
         {
             InitializeComponent();
 
-            MainPage = new LoginPage();
+            MainPage = new SignInPage();
         }
 
         protected override void OnStart()

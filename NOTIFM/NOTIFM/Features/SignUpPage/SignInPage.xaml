@@ -1,9 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:NOTIFM"
-             x:Class="NOTIFM.LoginPage">
-
+             x:Class="NOTIFM.Features.SignUpPage.SignInPage">
     <Grid BackgroundColor="#34C0FF">
 
         <Grid.RowDefinitions>
@@ -19,7 +17,7 @@
             <BoxView BackgroundColor="White" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,1,1,0.5"/>
             <Frame HasShadow="False" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" CornerRadius="50" Padding="0" >
                 <StackLayout BackgroundColor="White" >
-                    <Label Padding="25" TextColor="Black" HorizontalOptions="CenterAndExpand" FontFamily="UrbanistFontBold" FontSize="20" Text="NOTIFM"></Label>
+                    <Label Padding="25" TextColor="Black" HorizontalOptions="CenterAndExpand" FontFamily="UrbanistFontBold" FontSize="20" Text="Sign In"></Label>
                     <!-- 
                     TODO: Redesign this entry to have an outline -
                     Hacky Approach with StackLayout: https://stackoverflow.com/questions/32204361/border-color-for-editor-in-xamarin-forms 
@@ -27,11 +25,11 @@
 
                     <StackLayout WidthRequest="370" HeightRequest="55" HorizontalOptions="Center"  BackgroundColor="White">
                         <StackLayout BackgroundColor="#0D2631" Padding="1">
-                            <Entry WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" Placeholder="Your mail ID" FontFamily="UrbanistFontMedium" TextColor="#0D2631" BackgroundColor="White" />
+                            <Entry IsPassword="True" WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" Placeholder="Password" FontFamily="UrbanistFontMedium" TextColor="#0D2631" BackgroundColor="White" />
                         </StackLayout>
                     </StackLayout>
 
-                    <Button TranslationY="7.5" WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" BorderRadius="50" Text="SIGN IN / SIGN UP" TextColor="White" FontFamily="UrbanistFontBold" FontSize="15">
+                    <Button TranslationY="7.5" WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" BorderRadius="50" Text="SIGN IN" TextColor="White" FontFamily="UrbanistFontBold" FontSize="15">
                         <Button.Background>
                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                 <GradientStop Color="#81D9FF" Offset="0.01" />
@@ -39,12 +37,15 @@
                             </LinearGradientBrush>
                         </Button.Background>
                     </Button>
-                    
-                    <Image HeightRequest="30" HorizontalOptions="Center" Source="{local:ImageResource NOTIFM.Images.or_sign_in_social.png}" TranslationY="15"/>
-                    <StackLayout Padding="20" HorizontalOptions="Center" Orientation="Horizontal">
-                        <ImageButton Margin="0, 0, 20, 0" HeightRequest="65" BackgroundColor="White" Source="{local:ImageResource NOTIFM.Images.google_button.png}" HorizontalOptions="Center"/>
-                        <ImageButton HeightRequest="65" BackgroundColor="White"  Source="{local:ImageResource NOTIFM.Images.facebook_button.png}" HorizontalOptions="Center"/>
-                    </StackLayout>
+
+                    <Label TranslationY="25" HorizontalOptions="Center" TextColor="#0D2631" FontFamily="UrbanistFontBold" FontSize="15" Text="Forgot Password?">
+                        <!--- To enable click on this label, use the TapGestureRecognizer to navigate to the Forgot Password page
+                        
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}" />
+                        </Label.GestureRecognizers>
+                        -->
+                    </Label>
                 </StackLayout>
             </Frame>
 
@@ -53,6 +54,4 @@
 
 
     </Grid>
-
-
 </ContentPage>
