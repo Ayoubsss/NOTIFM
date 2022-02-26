@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "413815451829",
+    "project_id": "notifm",
+    "storage_bucket": "notifm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:413815451829:android:88556a0148033c9fae0efc",
+        "android_client_info": {
+          "package_name": "com.elasr.NOTIFM"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "413815451829-4p0a4vfjtk952606s7p9iol6d63q7bgu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.elasr.NOTIFM",
+            "certificate_hash": "0f7061ba48198629f30149f7431b15923b2ea9c2"
+          }
+        },
+        {
+          "client_id": "413815451829-k7ktt5m9pk9ma81fbk4cukkvepph0ae3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-VysImu93mT6IYChFXG4EqMh8iuc2xjw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "413815451829-k7ktt5m9pk9ma81fbk4cukkvepph0ae3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "413815451829-i2ibklupas1a1pd46fdasp91r69faenf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.elasr.NOTIFM"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
