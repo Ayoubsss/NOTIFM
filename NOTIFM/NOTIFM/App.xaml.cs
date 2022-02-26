@@ -11,7 +11,7 @@ namespace NOTIFM
         {
             InitializeComponent();
 
-            MainPage = new SignInPage();
+            MainPage = new LoginPage();
         }
 
         protected override void OnStart()
