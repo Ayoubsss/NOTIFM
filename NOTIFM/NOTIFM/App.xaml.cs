@@ -1,4 +1,5 @@
-﻿using NOTIFM.Features.SignUpPage;
+﻿using NOTIFM.Features.SignInPage;
+using NOTIFM.Infrastructure.Services;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,8 +12,16 @@ namespace NOTIFM
         {
             InitializeComponent();
 
-            MainPage = new LoginPage();
+            #region Application Pages
+            NavigationService.Configure("MainPage", typeof(LoginPage));
+            NavigationService.Configure("SignInPage", typeof(SignInPage));
+            #endregion
+            var mainPage = ((ViewNavigationService)NavigationService).SetRootPage("MainPage");
+
+            MainPage = mainPage;
         }
+
+        public static INavigationService NavigationService { get; } = new ViewNavigationService();
 
         protected override void OnStart()
         {

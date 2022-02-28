@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NOTIFM.Features.LoginPage;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -14,7 +15,12 @@ namespace NOTIFM
         {
             InitializeComponent();
 
+            // Remove navigation bar
+            NavigationPage.SetHasNavigationBar(this, false);
+
             resourceImage.Source = ImageSource.FromResource("NOTIFM.Images.registration_background_upper_crop.png");
+
+            BindingContext = new LoginViewModel();
         }
     }
 }

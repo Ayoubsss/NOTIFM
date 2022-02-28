@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace NOTIFM.Features.SignUpPage
+namespace NOTIFM.Features.SignInPage
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SignInPage : ContentPage
@@ -15,6 +15,9 @@ namespace NOTIFM.Features.SignUpPage
         public SignInPage()
         {
             InitializeComponent();
+
+            // Remove navigation bar
+            NavigationPage.SetHasNavigationBar(this, false);
 
             resourceImage.Source = ImageSource.FromResource("NOTIFM.Images.registration_background_upper_crop.png");
         }
