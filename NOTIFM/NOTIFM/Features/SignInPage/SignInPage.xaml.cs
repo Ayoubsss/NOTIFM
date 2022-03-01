@@ -20,6 +20,8 @@ namespace NOTIFM.Features.SignInPage
             NavigationPage.SetHasNavigationBar(this, false);
 
             resourceImage.Source = ImageSource.FromResource("NOTIFM.Images.registration_background_upper_crop.png");
+
+            BindingContext = new SignInViewModel(this);
         }
     }
 }

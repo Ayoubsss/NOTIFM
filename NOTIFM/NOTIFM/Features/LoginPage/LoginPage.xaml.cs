@@ -20,7 +20,7 @@ namespace NOTIFM
 
             resourceImage.Source = ImageSource.FromResource("NOTIFM.Images.registration_background_upper_crop.png");
 
-            BindingContext = new LoginViewModel();
+            BindingContext = new LoginViewModel(this);
         }
     }
 }

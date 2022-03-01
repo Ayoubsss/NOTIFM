@@ -27,11 +27,11 @@
 
                     <StackLayout WidthRequest="370" HeightRequest="55" HorizontalOptions="Center"  BackgroundColor="White">
                         <StackLayout BackgroundColor="#0D2631" Padding="1">
-                            <Entry WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" Placeholder="Your mail ID" FontFamily="UrbanistFontMedium" TextColor="#0D2631" BackgroundColor="White" />
+                            <Entry WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" Placeholder="Your mail ID" Text="{Binding LoginModel.Email}" FontFamily="UrbanistFontMedium" TextColor="#0D2631" BackgroundColor="White" />
                         </StackLayout>
                     </StackLayout>
 
-                    <Button TranslationY="7.5" WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" BorderRadius="50" Command="{Binding OnEmailEnteredCommand}" Text="SIGN IN / SIGN UP" TextColor="White" FontFamily="UrbanistFontBold" FontSize="15">
+                    <Button TranslationY="7.5" WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" BorderRadius="50" Command="{Binding OnEmailEnteredCommand}" Text="SIGN IN" TextColor="White" FontFamily="UrbanistFontBold" FontSize="15">
                         <Button.Background>
                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                 <GradientStop Color="#81D9FF" Offset="0.01" />

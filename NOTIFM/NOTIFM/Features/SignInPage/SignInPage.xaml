@@ -25,11 +25,11 @@
 
                     <StackLayout WidthRequest="370" HeightRequest="55" HorizontalOptions="Center"  BackgroundColor="White">
                         <StackLayout BackgroundColor="#0D2631" Padding="1">
-                            <Entry IsPassword="True" WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" Placeholder="Password" FontFamily="UrbanistFontMedium" TextColor="#0D2631" BackgroundColor="White" />
+                            <Entry IsPassword="True" Text="{Binding SignInModel.Password}" WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" Placeholder="Password" FontFamily="UrbanistFontMedium" TextColor="#0D2631" BackgroundColor="White" />
                         </StackLayout>
                     </StackLayout>
 
-                    <Button TranslationY="7.5" WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" BorderRadius="50" Text="SIGN IN" TextColor="White" FontFamily="UrbanistFontBold" FontSize="15">
+                    <Button TranslationY="7.5" WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" BorderRadius="50" Command="{Binding OnPasswordEnteredCommand}" Text="SIGN IN" TextColor="White" FontFamily="UrbanistFontBold" FontSize="15">
                         <Button.Background>
                             <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                 <GradientStop Color="#81D9FF" Offset="0.01" />

@@ -11,24 +11,33 @@ namespace NOTIFM.Features.LoginPage
 {
     public class LoginViewModel : BaseViewModel
     {
+        public LoginModel LoginModel { get; set; } = new LoginModel();
         private readonly INavigationService _navigationService;
-        public LoginViewModel()
+        private Page _page;
+        public LoginViewModel(Page page)
         {
             OnEmailEnteredCommand = new Command(OnEmailEntered);
             this._navigationService = App.NavigationService;
+            _page = page;
         }
 
         private async void OnEmailEntered()
         {
             try
             {
-                await _navigationService.NavigateAsync(nameof(SignInPage));
+                if (!ValidationHelper.IsFormValid(LoginModel))
+                {
+                    await _page.DisplayAlert("Error", "Enter a valid email", "OK");
+                    return;
+                }
+                else
+                {
+                    await _navigationService.NavigateAsync(nameof(SignInPage));
+                }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-
-                //await Xamarin.Forms.Shell.Current.DisplayAlert("SignIn", "An error occurs", "OK");
             }
         }
 
