@@ -12,7 +12,7 @@ namespace NOTIFM.Features.SignInPage
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SignInPage : ContentPage
     {
-        public SignInPage()
+        public SignInPage(string email)
         {
             InitializeComponent();
 
@@ -21,7 +21,7 @@ namespace NOTIFM.Features.SignInPage
 
             resourceImage.Source = ImageSource.FromResource("NOTIFM.Images.registration_background_upper_crop.png");
 
-            BindingContext = new SignInViewModel(this);
+            BindingContext = new SignInViewModel(this, email);
         }
     }
 }

@@ -6,6 +6,7 @@ using Android.Views;
 using Android.Widget;
 using Firebase.Auth;
 using NOTIFM.Common;
+using NOTIFM.Droid.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,8 +35,8 @@ namespace NOTIFM.Droid
             try
             {
                 var user = await Firebase.Auth.FirebaseAuth.Instance.SignInWithEmailAndPasswordAsync(email, password);
-                var token = user.User.GetIdToken(true);
-                return token.Result.ToString();
+                var token = await user.User.GetIdToken(true).ToAwaitableTask();
+                return token.ToString();
             }
             catch (FirebaseAuthInvalidUserException e)
             {

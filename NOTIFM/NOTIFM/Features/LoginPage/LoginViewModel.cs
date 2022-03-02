@@ -32,7 +32,7 @@ namespace NOTIFM.Features.LoginPage
                 }
                 else
                 {
-                    await _navigationService.NavigateAsync(nameof(SignInPage));
+                    await _navigationService.NavigateAsync(nameof(SignInPage), LoginModel.Email);
                 }
             }
             catch (Exception ex)

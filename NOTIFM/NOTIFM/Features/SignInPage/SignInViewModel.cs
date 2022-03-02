@@ -1,4 +1,5 @@
-﻿using NOTIFM.Infrastructure;
+﻿using NOTIFM.Common;
+using NOTIFM.Infrastructure;
 using NOTIFM.Infrastructure.Services;
 using System;
 using System.Collections.Generic;
@@ -10,16 +11,18 @@ namespace NOTIFM.Features.SignInPage
 {
     public class SignInViewModel: BaseViewModel
     {
-
+        IAuthenticationService auth;
         public SignInModel SignInModel { get; set; } = new SignInModel();
 
         //private readonly INavigationService _navigationService;
         private Page _page;
-        public SignInViewModel(Page page)
+        public SignInViewModel(Page page, string email)
         {
             OnPasswordEnteredCommand = new Command(OnPasswordEntered);
             //this._navigationService = App.NavigationService;
+            auth = DependencyService.Get<IAuthenticationService>();
             _page = page;
+            SignInModel.Email = email;
         }
 
         private async void OnPasswordEntered()
@@ -33,7 +36,20 @@ namespace NOTIFM.Features.SignInPage
                 }
                 else
                 {
-                    await _page.DisplayAlert("Success", "Logging you in...", "OK");
+                    string token = await auth.SignIn(SignInModel.Email, SignInModel.Password);
+
+                    if (token != string.Empty)
+                    {
+                        Device.BeginInvokeOnMainThread(async () => {
+                            await _page.DisplayAlert("Logged In", "Sucessfully logged in", "OK");
+                        });
+                    }
+                    else
+                    {
+                        Device.BeginInvokeOnMainThread(async () => {
+                            await _page.DisplayAlert("Error", "Failed to log in", "OK");
+                        });
+                    }
                 }
             }
             catch (Exception ex)
