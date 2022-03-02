@@ -20,7 +20,7 @@ namespace NOTIFM.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
-            DependencyService.Register<IAuthenticationService, FirebaseAuthentication>();
+            DependencyService.Register<IFirebaseAuthenticationService, FirebaseAuthentication>();
             FirebaseApp.InitializeApp(Application.ApplicationContext);
             LoadApplication(new App());
         }

@@ -1,6 +1,7 @@
 ﻿using NOTIFM.Common;
 using NOTIFM.Infrastructure;
 using NOTIFM.Infrastructure.Services;
+using NOTIFM.Infrastructure.Services.UserSession;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,18 +12,28 @@ namespace NOTIFM.Features.SignInPage
 {
     public class SignInViewModel: BaseViewModel
     {
-        IAuthenticationService auth;
+        IFirebaseAuthenticationService auth;
         public SignInModel SignInModel { get; set; } = new SignInModel();
 
-        //private readonly INavigationService _navigationService;
+        private readonly INavigationService _navigationService;
+        private readonly IUserSessionService _userSessionService;
         private Page _page;
         public SignInViewModel(Page page, string email)
         {
             OnPasswordEnteredCommand = new Command(OnPasswordEntered);
-            //this._navigationService = App.NavigationService;
-            auth = DependencyService.Get<IAuthenticationService>();
-            _page = page;
+            this._navigationService = App.NavigationService;
+            this._userSessionService = App.UserSessionService;
+            this.auth = DependencyService.Get<IFirebaseAuthenticationService>();
+            this._page = page;
             SignInModel.Email = email;
+
+            if (_userSessionService.IsFirebaseLoggedIn())
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await _page.DisplayAlert("Info", "Already logged in", "OK");
+                });
+            }
         }
 
         private async void OnPasswordEntered()
@@ -42,6 +53,7 @@ namespace NOTIFM.Features.SignInPage
                     {
                         Device.BeginInvokeOnMainThread(async () => {
                             await _page.DisplayAlert("Logged In", "Sucessfully logged in", "OK");
+                            await _navigationService.NavigateAsync(nameof(DashboardPage));
                         });
                     }
                     else

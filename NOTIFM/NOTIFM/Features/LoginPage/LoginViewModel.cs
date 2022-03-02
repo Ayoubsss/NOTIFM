@@ -1,6 +1,7 @@
 ﻿using NOTIFM.Features.SignInPage;
 using NOTIFM.Infrastructure;
 using NOTIFM.Infrastructure.Services;
+using NOTIFM.Infrastructure.Services.UserSession;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,12 +14,23 @@ namespace NOTIFM.Features.LoginPage
     {
         public LoginModel LoginModel { get; set; } = new LoginModel();
         private readonly INavigationService _navigationService;
+        private readonly IUserSessionService _userSessionService;
         private Page _page;
         public LoginViewModel(Page page)
         {
             OnEmailEnteredCommand = new Command(OnEmailEntered);
+
+            this._page = page;
             this._navigationService = App.NavigationService;
-            _page = page;
+            this._userSessionService = App.UserSessionService;
+
+            if (_userSessionService.IsFirebaseLoggedIn())
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await _page.DisplayAlert("Info", "Already logged in", "OK");
+                });
+            }
         }
 
         private async void OnEmailEntered()
@@ -27,7 +39,10 @@ namespace NOTIFM.Features.LoginPage
             {
                 if (!ValidationHelper.IsFormValid(LoginModel))
                 {
-                    await _page.DisplayAlert("Error", "Enter a valid email", "OK");
+                    Device.BeginInvokeOnMainThread(async () =>
+                    {
+                        await _page.DisplayAlert("Error", "Enter a valid email", "OK");
+                    });
                     return;
                 }
                 else

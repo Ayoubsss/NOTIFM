@@ -1,6 +1,9 @@
-﻿using NOTIFM.Features.SignInPage;
+﻿using NOTIFM.Features.DashboardPage;
+using NOTIFM.Features.SignInPage;
 using NOTIFM.Infrastructure.Services;
+using NOTIFM.Infrastructure.Services.UserSession;
 using System;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +18,7 @@ namespace NOTIFM
             #region Application Pages
             NavigationService.Configure("MainPage", typeof(LoginPage));
             NavigationService.Configure("SignInPage", typeof(SignInPage));
+            NavigationService.Configure("DashboardPage", typeof(DashboardPage));
             #endregion
             var mainPage = ((ViewNavigationService)NavigationService).SetRootPage("MainPage");
 
@@ -22,17 +26,7 @@ namespace NOTIFM
         }
 
         public static INavigationService NavigationService { get; } = new ViewNavigationService();
-
-        protected override void OnStart()
-        {
-        }
-
-        protected override void OnSleep()
-        {
-        }
-
-        protected override void OnResume()
-        {
-        }
+        public static IUserSessionService UserSessionService { get; } = new UserSessionService();
+       
     }
 }

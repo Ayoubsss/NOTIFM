@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NOTIFM.Features.DashboardPage.DashboardPage">
+    <Grid BackgroundColor="#34C0FF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="1.15*" />
+        </Grid.RowDefinitions>
+
+        <StackLayout BackgroundColor="#34C0FF" Grid.Row="0">
+            <Image x:Name="resourceImage" Scale="0.65" TranslationY="-50"/>
+        </StackLayout>
+
+    </Grid>
+</ContentPage>

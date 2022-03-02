@@ -10,7 +10,7 @@ using UIKit;
 
 namespace NOTIFM.iOS
 {
-    public class FirebaseAuthentication : IAuthenticationService
+    public class FirebaseAuthentication : IFirebaseAuthenticationService
     {
         public async Task<bool> CreateUser(string username, string email, string password)
         {
