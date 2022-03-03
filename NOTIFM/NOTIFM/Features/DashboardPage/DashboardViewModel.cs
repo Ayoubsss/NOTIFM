@@ -1,29 +1,46 @@
-﻿using NOTIFM.Infrastructure;
+﻿using NOTIFM.Common;
+using NOTIFM.Infrastructure;
+using NOTIFM.Infrastructure.Services;
 using NOTIFM.Infrastructure.Services.UserSession;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace NOTIFM.Features.DashboardPage
 {
     public class DashboardViewModel : BaseViewModel
     {
-        private readonly IUserSessionService _userSessionService;
+        IFirebaseAuthenticationService auth;
+        private readonly INavigationService _navigationService;
         private Page _page;
 
         public DashboardViewModel(Page page)
         {
             this._page = page;
-            this._userSessionService = App.UserSessionService;
+            this.auth = DependencyService.Get<IFirebaseAuthenticationService>();
+            this._navigationService = App.NavigationService;
 
-            if (_userSessionService.IsFirebaseLoggedIn())
+            OnLogoutTappedCommand = new Command(OnLogoutTapped);
+        }
+
+        private void OnLogoutTapped()
+        {
+            try
             {
+                auth.SignOut();
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-                    await _page.DisplayAlert("Info", "Already logged in", "OK");
+                    await _navigationService.NavigateAsync("MainPage");
                 });
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
+
+        public ICommand OnLogoutTappedCommand { get; }
     }
 }

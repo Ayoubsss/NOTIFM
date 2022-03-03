@@ -26,14 +26,6 @@ namespace NOTIFM.Features.SignInPage
             this.auth = DependencyService.Get<IFirebaseAuthenticationService>();
             this._page = page;
             SignInModel.Email = email;
-
-            if (_userSessionService.IsFirebaseLoggedIn())
-            {
-                Device.BeginInvokeOnMainThread(async () =>
-                {
-                    await _page.DisplayAlert("Info", "Already logged in", "OK");
-                });
-            }
         }
 
         private async void OnPasswordEntered()

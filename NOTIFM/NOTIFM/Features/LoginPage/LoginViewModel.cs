@@ -23,14 +23,6 @@ namespace NOTIFM.Features.LoginPage
             this._page = page;
             this._navigationService = App.NavigationService;
             this._userSessionService = App.UserSessionService;
-
-            if (_userSessionService.IsFirebaseLoggedIn())
-            {
-                Device.BeginInvokeOnMainThread(async () =>
-                {
-                    await _page.DisplayAlert("Info", "Already logged in", "OK");
-                });
-            }
         }
 
         private async void OnEmailEntered()
@@ -41,7 +33,7 @@ namespace NOTIFM.Features.LoginPage
                 {
                     Device.BeginInvokeOnMainThread(async () =>
                     {
-                        await _page.DisplayAlert("Error", "Enter a valid email", "OK");
+                        await _page.DisplayAlert(" ", "Enter a valid email", "OK");
                     });
                     return;
                 }

@@ -27,6 +27,27 @@ namespace NOTIFM
 
         public static INavigationService NavigationService { get; } = new ViewNavigationService();
         public static IUserSessionService UserSessionService { get; } = new UserSessionService();
+
+        protected override void OnStart()
+        {
+            this.RedirectIfNotLoggedIn();
+        }
+
+        protected override void OnResume()
+        {
+            this.RedirectIfNotLoggedIn();
+        }
+
+        private void RedirectIfNotLoggedIn()
+        {
+            if (UserSessionService.IsFirebaseLoggedIn())
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await NavigationService.NavigateAsync(nameof(DashboardPage));
+                });
+            }
+        }
        
     }
 }
