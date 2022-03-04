@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace NOTIFM.Droid
 {
-    public class FirebaseAuthentication : IFirebaseAuthenticationService
+    public class FirebaseAuthentication : IAuthenticationService
     {
         public class FirebaseCreateAuthRequest
         {
@@ -93,7 +93,7 @@ namespace NOTIFM.Droid
             await Firebase.Auth.FirebaseAuth.Instance.SendPasswordResetEmailAsync(email);
         }
 
-        void IFirebaseAuthenticationService.SignOut()
+        void IAuthenticationService.SignOut()
         {
             try
             {

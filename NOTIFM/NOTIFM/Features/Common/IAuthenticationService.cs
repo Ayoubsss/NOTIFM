@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace NOTIFM.Common
 {
-    public interface IFirebaseAuthenticationService
+    public interface IAuthenticationService
     {
         bool IsSignIn();
         Task<bool> CheckIfEmailExists(string email);

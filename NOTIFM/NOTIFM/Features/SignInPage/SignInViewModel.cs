@@ -11,7 +11,7 @@ namespace NOTIFM.Features.SignInPage
 {
     public class SignInViewModel: BaseViewModel
     {
-        IFirebaseAuthenticationService auth;
+        IAuthenticationService auth;
         public SignInModel SignInModel { get; set; } = new SignInModel();
 
         private readonly INavigationService _navigationService;
@@ -20,7 +20,7 @@ namespace NOTIFM.Features.SignInPage
         {
             OnPasswordEnteredCommand = new Command(OnPasswordEntered);
             this._navigationService = App.NavigationService;
-            this.auth = DependencyService.Get<IFirebaseAuthenticationService>();
+            this.auth = DependencyService.Get<IAuthenticationService>();
             this._page = page;
             SignInModel.Email = email;
         }

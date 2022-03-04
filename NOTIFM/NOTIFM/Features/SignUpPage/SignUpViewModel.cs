@@ -10,7 +10,7 @@ namespace NOTIFM.Features.SignUpPage
 {
     public class SignUpViewModel: BaseViewModel
     {
-        IFirebaseAuthenticationService auth;
+        IAuthenticationService auth;
         private readonly INavigationService _navigationService;
         public SignUpModel SignUpModel { get; set; } = new SignUpModel();
         private Page _page;
@@ -19,7 +19,7 @@ namespace NOTIFM.Features.SignUpPage
         {
             this._navigationService = App.NavigationService;
             this._page = page;
-            this.auth = DependencyService.Get<IFirebaseAuthenticationService>();
+            this.auth = DependencyService.Get<IAuthenticationService>();
 
             SignUpModel.Email = email;
         }

@@ -28,7 +28,7 @@ namespace NOTIFM.iOS
 
             Firebase.Core.App.Configure();
 
-            DependencyService.Register<IFirebaseAuthenticationService, FirebaseAuthentication>();
+            DependencyService.Register<IAuthenticationService, FirebaseAuthentication>();
 
             LoadApplication(new App());
 

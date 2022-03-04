@@ -13,7 +13,7 @@ namespace NOTIFM.Features.LoginPage
 {
     public class LoginViewModel : BaseViewModel
     {
-        IFirebaseAuthenticationService auth;
+        IAuthenticationService auth;
         public LoginModel LoginModel { get; set; } = new LoginModel();
         private readonly INavigationService _navigationService;
         private Page _page;
@@ -23,7 +23,7 @@ namespace NOTIFM.Features.LoginPage
 
             this._page = page;
             this._navigationService = App.NavigationService;
-            this.auth = DependencyService.Get<IFirebaseAuthenticationService>();
+            this.auth = DependencyService.Get<IAuthenticationService>();
         }
 
         private async void OnEmailEntered()

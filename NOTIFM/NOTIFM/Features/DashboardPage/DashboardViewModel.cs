@@ -12,14 +12,14 @@ namespace NOTIFM.Features.DashboardPage
 {
     public class DashboardViewModel : BaseViewModel
     {
-        IFirebaseAuthenticationService auth;
+        IAuthenticationService auth;
         private readonly INavigationService _navigationService;
         private Page _page;
 
         public DashboardViewModel(Page page)
         {
             this._page = page;
-            this.auth = DependencyService.Get<IFirebaseAuthenticationService>();
+            this.auth = DependencyService.Get<IAuthenticationService>();
             this._navigationService = App.NavigationService;
 
             OnLogoutTappedCommand = new Command(OnLogoutTapped);
