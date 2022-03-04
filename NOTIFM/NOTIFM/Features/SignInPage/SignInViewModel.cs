@@ -1,7 +1,6 @@
 ﻿using NOTIFM.Common;
 using NOTIFM.Infrastructure;
 using NOTIFM.Infrastructure.Services;
-using NOTIFM.Infrastructure.Services.UserSession;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,13 +15,11 @@ namespace NOTIFM.Features.SignInPage
         public SignInModel SignInModel { get; set; } = new SignInModel();
 
         private readonly INavigationService _navigationService;
-        private readonly IUserSessionService _userSessionService;
         private Page _page;
         public SignInViewModel(Page page, string email)
         {
             OnPasswordEnteredCommand = new Command(OnPasswordEntered);
             this._navigationService = App.NavigationService;
-            this._userSessionService = App.UserSessionService;
             this.auth = DependencyService.Get<IFirebaseAuthenticationService>();
             this._page = page;
             SignInModel.Email = email;

@@ -7,7 +7,7 @@ namespace NOTIFM.Features.LoginPage
 {
     public class LoginModel
     {
-        [Required, MaxLength(20), EmailAddress]
+        [Required, MaxLength(50), EmailAddress]
         public string Email { get; set; }
     }
 }

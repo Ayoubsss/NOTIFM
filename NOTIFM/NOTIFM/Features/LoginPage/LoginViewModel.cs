@@ -1,4 +1,5 @@
-﻿using NOTIFM.Features.SignInPage;
+﻿using NOTIFM.Common;
+using NOTIFM.Features.SignInPage;
 using NOTIFM.Infrastructure;
 using NOTIFM.Infrastructure.Services;
 using NOTIFM.Infrastructure.Services.UserSession;
@@ -12,9 +13,9 @@ namespace NOTIFM.Features.LoginPage
 {
     public class LoginViewModel : BaseViewModel
     {
+        IFirebaseAuthenticationService auth;
         public LoginModel LoginModel { get; set; } = new LoginModel();
         private readonly INavigationService _navigationService;
-        private readonly IUserSessionService _userSessionService;
         private Page _page;
         public LoginViewModel(Page page)
         {
@@ -22,7 +23,7 @@ namespace NOTIFM.Features.LoginPage
 
             this._page = page;
             this._navigationService = App.NavigationService;
-            this._userSessionService = App.UserSessionService;
+            this.auth = DependencyService.Get<IFirebaseAuthenticationService>();
         }
 
         private async void OnEmailEntered()
@@ -35,11 +36,26 @@ namespace NOTIFM.Features.LoginPage
                     {
                         await _page.DisplayAlert(" ", "Enter a valid email", "OK");
                     });
-                    return;
                 }
                 else
                 {
-                    await _navigationService.NavigateAsync(nameof(SignInPage), LoginModel.Email);
+                    var result = await auth.CheckIfEmailExists(LoginModel.Email);
+
+                    
+                    if (!result)
+                    {
+                        Device.BeginInvokeOnMainThread(async () =>
+                        {
+                            await _navigationService.NavigateAsync(nameof(SignUpPage), LoginModel.Email);
+                        });
+                    }
+                    else
+                    {
+                        Device.BeginInvokeOnMainThread(async () =>
+                        {
+                            await _navigationService.NavigateAsync(nameof(SignInPage), LoginModel.Email);
+                        });
+                    }
                 }
             }
             catch (Exception ex)
