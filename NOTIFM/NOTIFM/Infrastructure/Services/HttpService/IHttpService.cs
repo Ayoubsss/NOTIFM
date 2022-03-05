@@ -7,6 +7,6 @@ namespace NOTIFM.Infrastructure.Services.RestService
 {
     public interface IHttpService
     {
-        Task<M> PostHttpRequest<R, M>(string apiUrl, R reqModel);
+        Task<M> PostHttpJsonRequest<R, M>(string apiUrl, R reqModel);
     }
 }

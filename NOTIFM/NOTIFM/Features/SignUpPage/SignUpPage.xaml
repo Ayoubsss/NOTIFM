@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NOTIFM.Features.SignUpPage.SignUpPage">
     <Grid BackgroundColor="#34C0FF">
-
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="1.15*" />
@@ -22,16 +21,19 @@
                     TODO: Redesign this entry to have an outline -
                     Hacky Approach with StackLayout: https://stackoverflow.com/questions/32204361/border-color-for-editor-in-xamarin-forms 
                     -->
-
                     <StackLayout WidthRequest="370" HeightRequest="55" HorizontalOptions="Center"  BackgroundColor="White">
                         <StackLayout BackgroundColor="#0D2631" Padding="1">
-                            <Entry IsPassword="True" WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" Placeholder="Password" FontFamily="UrbanistFontMedium" TextColor="#0D2631" BackgroundColor="White" />
-
+                            <Entry IsPassword="True" Text="{Binding SignUpModel.Password}" WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" Placeholder="Password" FontFamily="UrbanistFontMedium" TextColor="#0D2631" BackgroundColor="White" />
                         </StackLayout>
-                        <StackLayout BackgroundColor="#0D2631" Padding="1" TranslationY="7.5">
-                            <Entry IsPassword="True" WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" Placeholder="Confirm Password" FontFamily="UrbanistFontMedium" TextColor="#0D2631" BackgroundColor="White" />
+                    </StackLayout>
+                    <StackLayout WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" TranslationY="10" BackgroundColor="White">
+                        <StackLayout BackgroundColor="#0D2631" Padding="1">
+                            <Entry IsPassword="True" Text="{Binding SignUpModel.PasswordConfirmation}" WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" Placeholder="Confirm Password" FontFamily="UrbanistFontMedium" TextColor="#0D2631" BackgroundColor="White" />
                         </StackLayout>
-                        <Button TranslationY="15" WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" BorderRadius="50" Command="{Binding OnPasswordEnteredCommand}" Text="SIGN UP" TextColor="White" FontFamily="UrbanistFontBold" FontSize="15">
+                    </StackLayout>
+                    
+                    <StackLayout>
+                        <Button TranslationY="20" WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" BorderRadius="50" Command="{Binding OnSignUpTappedCommand}" Text="SIGN UP" TextColor="White" FontFamily="UrbanistFontBold" FontSize="15">
                             <Button.Background>
                                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                                     <GradientStop Color="#81D9FF" Offset="0.01" />
@@ -39,14 +41,10 @@
                                 </LinearGradientBrush>
                             </Button.Background>
                         </Button>
-
                     </StackLayout>
+
                 </StackLayout>
             </Frame>
-
         </AbsoluteLayout>
-
-
-
     </Grid>
 </ContentPage>

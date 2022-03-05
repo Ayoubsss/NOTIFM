@@ -16,7 +16,7 @@ namespace NOTIFM.Infrastructure.Services.RestService
             _client = new HttpClient();
         }
 
-        public async Task<M> PostHttpRequest<R, M>(string apiUrl, R reqModel)
+        public async Task<M> PostHttpJsonRequest<R, M>(string apiUrl, R reqModel)
         {
             M model = default(M);
 

@@ -9,10 +9,10 @@ namespace NOTIFM.Features.SignUpPage
     {
         public string Email { get; set; }
 
-        [Required]
+        [Required, MaxLength(8)]
         public string Password { get; set; }
 
-        [Required]
+        [Required, MaxLength(8)]
         public string PasswordConfirmation { get; set; }
     }
 }

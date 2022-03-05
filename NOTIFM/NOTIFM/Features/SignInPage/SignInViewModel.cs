@@ -31,7 +31,7 @@ namespace NOTIFM.Features.SignInPage
             {
                 if (!ValidationHelper.IsFormValid(SignInModel))
                 {
-                    await _page.DisplayAlert("Error", "Enter a password", "OK");
+                    await _page.DisplayAlert(" ", "Enter a password", "OK");
                     return;
                 }
                 else
@@ -48,7 +48,7 @@ namespace NOTIFM.Features.SignInPage
                     else
                     {
                         Device.BeginInvokeOnMainThread(async () => {
-                            await _page.DisplayAlert("Error", "Failed to log in", "OK");
+                            await _page.DisplayAlert(" ", "Failed to log in", "OK");
                         });
                     }
                 }

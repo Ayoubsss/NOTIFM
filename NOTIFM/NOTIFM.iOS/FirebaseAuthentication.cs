@@ -35,7 +35,7 @@ namespace NOTIFM.iOS
         {
             try
             {
-                FirebaseCreateAuthResponse response = await App.HttpService.PostHttpRequest<FirebaseCreateAuthRequest, FirebaseCreateAuthResponse>("https://identitytoolkit.googleapis.com/v1/accounts:createAuthUri?key=AIzaSyB-VysImu93mT6IYChFXG4EqMh8iuc2xjw", new FirebaseCreateAuthRequest
+                FirebaseCreateAuthResponse response = await App.HttpService.PostHttpJsonRequest<FirebaseCreateAuthRequest, FirebaseCreateAuthResponse>("https://identitytoolkit.googleapis.com/v1/accounts:createAuthUri?key=AIzaSyB-VysImu93mT6IYChFXG4EqMh8iuc2xjw", new FirebaseCreateAuthRequest
                 {
                     identifier = email,
                     continueUri = "http://localhost:8080/app"
