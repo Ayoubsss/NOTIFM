@@ -19,10 +19,18 @@ namespace NOTIFM.Features.SignInPage
         public SignInViewModel(Page page, string email)
         {
             OnPasswordEnteredCommand = new Command(OnPasswordEntered);
+            OnForgotPasswordCommand = new Command(GoToForgotPassword);
             this._navigationService = App.NavigationService;
             this.auth = DependencyService.Get<IAuthenticationService>();
             this._page = page;
             SignInModel.Email = email;
+        }
+
+        private void GoToForgotPassword()
+        {
+            Device.BeginInvokeOnMainThread(async () => {
+                await _navigationService.NavigateAsync(nameof(ForgotPasswordPage));
+            });
         }
 
         private async void OnPasswordEntered()
@@ -58,7 +66,7 @@ namespace NOTIFM.Features.SignInPage
                 Console.WriteLine(ex.Message);
             }
         }
-
         public ICommand OnPasswordEnteredCommand { get; }
+        public ICommand OnForgotPasswordCommand { get; }
     }
 }

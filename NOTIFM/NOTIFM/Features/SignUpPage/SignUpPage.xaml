@@ -23,12 +23,12 @@
                     -->
                     <StackLayout WidthRequest="370" HeightRequest="55" HorizontalOptions="Center"  BackgroundColor="White">
                         <StackLayout BackgroundColor="#0D2631" Padding="1">
-                            <Entry IsPassword="True" Text="{Binding SignUpModel.Password}" WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" Placeholder="Password" FontFamily="UrbanistFontMedium" TextColor="#0D2631" BackgroundColor="White" />
+                            <Entry IsPassword="True" Text="{Binding SignUpModel.Password}" WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" Placeholder="Your password" FontFamily="UrbanistFontMedium" TextColor="#0D2631" BackgroundColor="White" />
                         </StackLayout>
                     </StackLayout>
                     <StackLayout WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" TranslationY="10" BackgroundColor="White">
                         <StackLayout BackgroundColor="#0D2631" Padding="1">
-                            <Entry IsPassword="True" Text="{Binding SignUpModel.PasswordConfirmation}" WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" Placeholder="Confirm Password" FontFamily="UrbanistFontMedium" TextColor="#0D2631" BackgroundColor="White" />
+                            <Entry IsPassword="True" Text="{Binding SignUpModel.PasswordConfirmation}" WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" Placeholder="Confirm your password" FontFamily="UrbanistFontMedium" TextColor="#0D2631" BackgroundColor="White" />
                         </StackLayout>
                     </StackLayout>
                     

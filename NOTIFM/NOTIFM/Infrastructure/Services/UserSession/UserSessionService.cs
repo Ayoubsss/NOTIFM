@@ -15,7 +15,7 @@ namespace NOTIFM.Infrastructure.Services.UserSession
             auth = DependencyService.Get<IAuthenticationService>();
         }
 
-        public bool IsFirebaseLoggedIn()
+        public bool IsLoggedIn()
         {
             return auth.IsSignIn();
         }

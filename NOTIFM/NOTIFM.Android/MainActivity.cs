@@ -20,8 +20,11 @@ namespace NOTIFM.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
+            #region Firebase Specific
             DependencyService.Register<IAuthenticationService, FirebaseAuthentication>();
             FirebaseApp.InitializeApp(Application.ApplicationContext);
+            #endregion
+
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

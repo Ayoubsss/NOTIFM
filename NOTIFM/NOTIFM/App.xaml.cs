@@ -1,4 +1,5 @@
 ﻿using NOTIFM.Features.DashboardPage;
+using NOTIFM.Features.ForgotPasswordPage;
 using NOTIFM.Features.SignInPage;
 using NOTIFM.Features.SignUpPage;
 using NOTIFM.Infrastructure.Services;
@@ -18,12 +19,13 @@ namespace NOTIFM
             InitializeComponent();
 
             #region Application Pages
-            NavigationService.Configure("MainPage", typeof(LoginPage));
+            NavigationService.Configure("LoginPage", typeof(LoginPage));
             NavigationService.Configure("SignInPage", typeof(SignInPage));
             NavigationService.Configure("SignUpPage", typeof(SignUpPage));
+            NavigationService.Configure("ForgotPasswordPage", typeof(ForgotPasswordPage));
             NavigationService.Configure("DashboardPage", typeof(DashboardPage));
             #endregion
-            var mainPage = ((ViewNavigationService)NavigationService).SetRootPage("MainPage");
+            var mainPage = ((ViewNavigationService)NavigationService).SetRootPage("LoginPage");
 
             MainPage = mainPage;
         }
@@ -45,7 +47,7 @@ namespace NOTIFM
 
         private void RedirectIfNotLoggedIn()
         {
-            if (UserSessionService.IsFirebaseLoggedIn())
+            if (UserSessionService.IsLoggedIn())
             {
                 Device.BeginInvokeOnMainThread(async () =>
                 {

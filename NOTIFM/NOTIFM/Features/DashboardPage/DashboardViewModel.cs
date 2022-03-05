@@ -32,7 +32,7 @@ namespace NOTIFM.Features.DashboardPage
                 auth.SignOut();
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-                    await _navigationService.NavigateAsync("MainPage");
+                    await _navigationService.NavigateAsync(nameof(LoginPage));
                 });
             }
             catch (Exception ex)
