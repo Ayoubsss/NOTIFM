@@ -21,6 +21,8 @@ namespace NOTIFM.Infrastructure
 
         public static bool IsPasswordValid(string password)
         {
+            if (password == null) return false;
+
             int validConditions = 0;
             foreach (char c in password)
             {
