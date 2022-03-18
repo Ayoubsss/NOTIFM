@@ -50,7 +50,7 @@ namespace NOTIFM.Features.SignInPage
                     {
                         Device.BeginInvokeOnMainThread(async () => {
                             await _page.DisplayAlert("Logged In", "Sucessfully logged in", "OK");
-                            await _navigationService.NavigateAsync(nameof(DashboardPage));
+                            await _navigationService.NavigateAsync(nameof(DashboardPage), SignInModel.Email);
                         });
                     }
                     else

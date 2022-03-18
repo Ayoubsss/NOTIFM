@@ -53,7 +53,7 @@ namespace NOTIFM.Features.SignUpPage
                         {
                             Device.BeginInvokeOnMainThread(async () => {
                                 await _page.DisplayAlert("Signed Up", "You've successfully signed up. Signing in...", "OK");
-                                await _navigationService.NavigateAsync(nameof(DashboardPage));
+                                await _navigationService.NavigateAsync(nameof(DashboardPage), SignUpModel.Email);
                             });
                         }
 

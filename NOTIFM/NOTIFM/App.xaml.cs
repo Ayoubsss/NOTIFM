@@ -51,7 +51,8 @@ namespace NOTIFM
             {
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-                    await NavigationService.NavigateAsync(nameof(DashboardPage));
+                    var emailSignedIn = "N/A";
+                    await NavigationService.NavigateAsync(nameof(DashboardPage), emailSignedIn);
                 });
             }
         }

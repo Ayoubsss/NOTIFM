@@ -1,14 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:local="clr-namespace:NOTIFM"
              x:Class="NOTIFM.Features.DashboardPage.DashboardPage">
-    <Grid BackgroundColor="#34C0FF">
+    <Grid BackgroundColor="#FFFFFF">
         <Grid.RowDefinitions>
+            <RowDefinition Height="0.175*" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="1.15*" />
         </Grid.RowDefinitions>
 
-        <StackLayout BackgroundColor="#34C0FF" Grid.Row="0">
+        <StackLayout Grid.Row="0">
+            <yummy:PancakeView BackgroundColor="#34C0FF" CornerRadius="0,0,45,45" HorizontalOptions="FillAndExpand" HeightRequest="150">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*" />
+                        <ColumnDefinition Width="0.5*" />
+                    </Grid.ColumnDefinitions>
+                    <StackLayout HorizontalOptions="CenterAndExpand" Grid.Column="0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.5*" />
+                                <ColumnDefinition Width="0.5*" />
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Margin="30,15,0,0" HorizontalOptions="CenterAndExpand" Grid.Column="0">
+                                <ImageButton HeightRequest="55" BackgroundColor="#34C0FF"  HorizontalOptions="Start" Source="{local:ImageResource NOTIFM.Images.profile_frame.png}"/>
+                            </StackLayout>
+                            <StackLayout Margin="0,17,0,0" Grid.Column="1" HorizontalOptions="CenterAndExpand">
+                                <Label TextColor="#c2ecff" FontFamily="UrbanistFontBold" FontSize="16" Margin="0,2,0,0"  Text="Welcome" />
+                                <Label TextColor="White" FontFamily="UrbanistFontBold" FontSize="20" Margin="0,0,0,0" Text="{Binding DashboardModel.Email}"></Label>
+                            </StackLayout>
+                        </Grid>
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1">
+                        <ImageButton HeightRequest="55" Margin="0,15,30,0" BackgroundColor="#34C0FF" HorizontalOptions="End" Source="{local:ImageResource NOTIFM.Images.settings_button.png}"/>
+                    </StackLayout>
+                </Grid>
+            </yummy:PancakeView>
+        </StackLayout>
+
+        <StackLayout BackgroundColor="#FFFFFF" Grid.Row="1">
             <Button TranslationY="7.5" WidthRequest="370" HeightRequest="55" HorizontalOptions="Center" BorderRadius="50" Command="{Binding OnLogoutTappedCommand}" Text="LOG OUT" TextColor="White" FontFamily="UrbanistFontBold" FontSize="15">
                 <Button.Background>
                     <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">

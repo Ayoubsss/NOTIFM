@@ -12,14 +12,14 @@ namespace NOTIFM.Features.DashboardPage
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DashboardPage : ContentPage
     {
-        public DashboardPage()
+        public DashboardPage(string email = "N/A")
         {
             InitializeComponent();
 
             // Remove navigation bar
             NavigationPage.SetHasNavigationBar(this, false);
 
-            BindingContext = new DashboardViewModel(this);
+            BindingContext = new DashboardViewModel(this, email);
         }
     }
 }

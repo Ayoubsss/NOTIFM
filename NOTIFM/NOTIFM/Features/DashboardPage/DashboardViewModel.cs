@@ -12,15 +12,17 @@ namespace NOTIFM.Features.DashboardPage
 {
     public class DashboardViewModel : BaseViewModel
     {
+        public DashboardModel DashboardModel { get; set; } = new DashboardModel();
         IAuthenticationService auth;
         private readonly INavigationService _navigationService;
         private Page _page;
 
-        public DashboardViewModel(Page page)
+        public DashboardViewModel(Page page, string email)
         {
             this._page = page;
             this.auth = DependencyService.Get<IAuthenticationService>();
             this._navigationService = App.NavigationService;
+            this.DashboardModel.Email = email;
 
             OnLogoutTappedCommand = new Command(OnLogoutTapped);
         }
@@ -32,7 +34,7 @@ namespace NOTIFM.Features.DashboardPage
                 auth.SignOut();
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-                    await _navigationService.NavigateAsync(nameof(LoginPage));
+                    await _navigationService.NavigateAsync(nameof(LoginPage), false);
                 });
             }
             catch (Exception ex)
