@@ -24,7 +24,20 @@ namespace NOTIFM.Features.DashboardPage
             this._navigationService = App.NavigationService;
             this.DashboardModel.Email = email;
 
+            tapCommand = new Command(OnTapped);
             OnLogoutTappedCommand = new Command(OnLogoutTapped);
+        }
+
+        ICommand tapCommand;
+        public ICommand TapCommand
+        {
+            get { return tapCommand; }
+        }
+
+        void OnTapped()
+        {
+            // Here you can use MessagingCenter and Send a message to test with a screen tap
+            MessagingCenter.Send<NOTIFM.App>((NOTIFM.App)Xamarin.Forms.Application.Current, "TappedView");
         }
 
         private void OnLogoutTapped()
