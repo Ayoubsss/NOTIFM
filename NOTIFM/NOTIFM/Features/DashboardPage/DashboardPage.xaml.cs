@@ -29,7 +29,7 @@ namespace NOTIFM.Features.DashboardPage
             // Use the Publish-Subsciber pattern to create custom events
             //
             // Send:      MessagingCenter.Send<NOTIFM.App>((NOTIFM.App)Xamarin.Forms.Application.Current, "TappedView");
-            // Subscript: MessagingCenter.Subscribe<App>((App)Application.Current, "TappedView", (sender) => { // code to execute });
+            // Subscribe: MessagingCenter.Subscribe<App>((App)Application.Current, "TappedView", (sender) => { // code to execute });
 
             MessagingCenter.Subscribe<App>((App)Application.Current, "TappedView", (sender) => {
                 Device.BeginInvokeOnMainThread(async () =>

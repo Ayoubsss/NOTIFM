@@ -10,7 +10,6 @@ namespace NOTIFM.Features.BubbleView
     public class NotificationBubble
     {
         public Category Category { get; set; }
-
         // Priority defines the size of the bubble
         public int Priority { get; set; }
         public Position Position { get; set; }
